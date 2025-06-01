@@ -14,34 +14,66 @@ import Sidebar from './components/Sidebar.vue'
 </script>
 
 <style>
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
-  height: 100vh;
-  overflow: hidden;
+  height: 100%;
   box-sizing: border-box;
-}
-
-.app-container {
-  display: flex;
   font-family: "Segoe UI", sans-serif;
   overflow: hidden;
 }
 
-.sidebar-container {
+.app-container {
   display: flex;
-  width: 260px;
-  height: 97vh;
+  min-height: 100vh;
   background: #f4f4f4;
+  overflow: hidden;
+}
+
+.sidebar-container {
+  width: 260px;
+  background: #ffffff;
   padding: 15px 0 15px 15px;
+  border-radius: 20px;
+  height: calc(100vh - 30px);
+  margin: 15px 0 15px 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.04);
+  position: sticky;
+  top: 0;
 }
 
 .main-content {
   flex: 1;
   padding: 15px;
   background: #f4f4f4;
-  height: 95vh;
-  overflow-y: scroll;
+  height: 100vh;
+  overflow-y: auto;
   scrollbar-width: none;
+}
+
+/* Optional: Hide scrollbar in WebKit (Chrome, Safari) */
+.main-content::-webkit-scrollbar {
+  display: none;
+}
+
+/* Responsive: stack layout for narrow screens */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+
+  .sidebar-container {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    border-radius: 0;
+    padding: 10px 15px;
+  }
+
+  .main-content {
+    height: auto;
+    padding: 10px;
+  }
 }
 </style>

@@ -146,13 +146,21 @@ function toggleCustomers() {
   width: 260px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   padding: 16px;
   border-radius: 15px;
-  overflow: hidden;
   box-sizing: border-box;
   font-family: "Segoe UI", sans-serif;
   background-color: #fff;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
 }
 
 .logo {
@@ -184,8 +192,14 @@ function toggleCustomers() {
 
 .nav {
   flex: 1;
-  overflow: scroll;
-  scrollbar-width: none;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+/* Scrollbar hidden (but scrollable) */
+.nav::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
 .nav-item {
@@ -243,7 +257,6 @@ function toggleCustomers() {
   color: #000;
 }
 
-/* Customers row layout */
 .customers-row {
   justify-content: space-between;
 }
@@ -283,6 +296,7 @@ function toggleCustomers() {
 
 .bottom-actions {
   padding-top: 1.2rem;
+  border-top: 1px solid #f1f1f1;
 }
 
 .user-info {
@@ -321,5 +335,18 @@ function toggleCustomers() {
 
 .logout:hover {
   color: #555;
+}
+
+/* Responsive: small height scroll fix */
+@media (max-height: 700px) {
+  .sidebar {
+    height: auto;
+    min-height: 100vh;
+  }
+  .sidebar-content {
+    height: auto;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+  }
 }
 </style>
