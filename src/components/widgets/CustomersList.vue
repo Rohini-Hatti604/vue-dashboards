@@ -178,9 +178,9 @@ const sortedCustomers = computed(() => {
 }
 
 .footer {
-  text-align: left;
-  margin-top: 2rem;
-  padding-left: 0.5rem;
+  text-align: left; 
+  padding-left: 1rem;
+  margin-top: 1.7rem;
 }
 
 .footer a {

@@ -133,7 +133,7 @@ onMounted(() => {
 .growth-section {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.75rem;
 }
 
 .growth-card {
@@ -197,13 +197,13 @@ onMounted(() => {
 }
 
 .summary-card.small {
-  min-height: 100px;
+  min-height: 80px;
   padding: 0.5rem 0.6rem;
 }
 
 .label {
   color: #888;
-  font-size: 1rem;
+  font-size: 0.8rem;
   font-weight: 600;
   margin: 0.1rem 0.5rem 0.5rem 0.3rem;
 }
@@ -213,11 +213,11 @@ onMounted(() => {
 }
 
 .value-container.move-down {
-  margin-top: 1.5rem;
+  margin-top: 1.2rem;
 }
 
 .value {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 600;
   color: #8c4f2b;
   margin: 0;
@@ -226,13 +226,13 @@ onMounted(() => {
 .subtext {
   font-size: 0.8rem;
   color: #eb9728;
-  margin-top: 0.2rem;
-  //font-weight: bold;
+  font-weight: 600;
+  margin-top: 0;
 }
 
 .one {
   color: #222;
-  font-size: 0.75rem;
+  font-size: 0.65rem;
 }
 
 .summary-card.buyer .buyer-info {
@@ -258,7 +258,7 @@ onMounted(() => {
 
 .buyer-data p {
   margin: 0;
-  font-size: 0.5rem;
+  font-size: 0.4rem;
   color: #666;
 }
 </style>

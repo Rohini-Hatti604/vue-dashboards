@@ -1,11 +1,11 @@
 <template>
-  <div class="sidebar">
+  <div class="sidebar" :class="{ collapsed }">
     <!-- Top: Logo + Search -->
     <div class="logo">
       <span class="logo-icon">🍊</span>
-      <span class="logo-text">OrangeFarm</span>
+      <span class="logo-text" v-if="!collapsed">OrangeFarm</span>
     </div>
-    <div class="search-bar">
+    <div class="search-bar" v-if="!collapsed">
       <input type="text" placeholder="Search" />
     </div>
 
@@ -18,7 +18,7 @@
           @click="setActive('Dashboard')"
         >
           <LayoutDashboard class="icon" />
-          <span class="text">Dashboard</span>
+          <span class="text" v-if="!collapsed">Dashboard</span>
         </div>
 
         <div class="gap" />
@@ -139,6 +139,7 @@ function setActive(item) {
 function toggleCustomers() {
   isCustomersOpen.value = !isCustomersOpen.value
 }
+
 </script>
 
 <style scoped>
@@ -148,12 +149,9 @@ function toggleCustomers() {
   flex-direction: column;
   padding: 16px;
   border-radius: 15px;
+  overflow: hidden;
   box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
   background-color: #fff;
-  height: 100vh;
-  position: sticky;
-  top: 0;
 }
 
 .sidebar-content {
@@ -162,6 +160,12 @@ function toggleCustomers() {
   height: 100%;
   overflow: hidden;
 }
+
+.sidebar.collapsed {
+  width: 80px;
+  padding: 60px 8px 16px;
+}
+
 
 .logo {
   display: flex;
@@ -296,7 +300,6 @@ function toggleCustomers() {
 
 .bottom-actions {
   padding-top: 1.2rem;
-  border-top: 1px solid #f1f1f1;
 }
 
 .user-info {
@@ -311,6 +314,7 @@ function toggleCustomers() {
   width: 30px;
   height: 30px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .user-details .name {
@@ -338,15 +342,15 @@ function toggleCustomers() {
 }
 
 /* Responsive: small height scroll fix */
-@media (max-height: 700px) {
+@media (max-width: 768px) {
   .sidebar {
-    height: auto;
-    min-height: 100vh;
+    width: 260px;
   }
-  .sidebar-content {
-    height: auto;
-    max-height: calc(100vh - 100px);
-    overflow-y: auto;
+  
+  .sidebar.collapsed {
+    width: 0;
+    padding: 60px 0 16px;
+    overflow: hidden;
   }
 }
 </style>
